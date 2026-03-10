@@ -38,4 +38,17 @@
             <arg value="build.xml"/>
         </exec>
     </target>
+      <target name="package" depends="clean,test">
+    <echo>Generating test report...</echo>
+
+    <mkdir dir="${dist.dir}/test-report"/>
+
+    <junitreport todir="${dist.dir}/test-report">
+        <fileset dir="${test.reports.dir}">
+            <include name="TEST-*.xml"/>
+        </fileset>
+
+        <report format="frames" todir="${dist.dir}/test-report/html"/>
+    </junitreport>
+  </target>
 </project>
