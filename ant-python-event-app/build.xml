@@ -11,7 +11,7 @@
 
     <target name="test">
         <echo>Running unit tests...</echo>
-        <exec executable="python3" failonerror="true">
+        <exec executable="python" failonerror="true">
             <arg value="-m"/>
             <arg value="unittest"/>
             <arg value="discover"/>
@@ -22,7 +22,7 @@
 
     <target name="run">
         <echo>Running event registration validator...</echo>
-        <exec executable="python3" failonerror="true">
+        <exec executable="python" failonerror="true">
             <arg value="${src.dir}/app.py"/>
         </exec>
     </target>
@@ -38,17 +38,11 @@
             <arg value="build.xml"/>
         </exec>
     </target>
-      <target name="report" depends="clean,test">
-    <echo>Generating test report...</echo>
 
-    <mkdir dir="${dist.dir}/test-report"/>
-
-    <junitreport todir="${dist.dir}/test-report">
-        <fileset dir="${test.reports.dir}">
-            <include name="TEST-*.xml"/>
-        </fileset>
-
-        <report format="frames" todir="${dist.dir}/test-report/html"/>
-    </junitreport>
-  </target>
-</project>
+   <target name="report">
+        <echo>Generating validation report...</echo>
+        <mkdir dir="${dist.dir}"/>
+        <exec executable="python" failonerror="true" output="${dist.dir}/report.txt">
+            <arg value="${src.dir}/app.py"/>
+        </exec>
+    </target>
