@@ -42,6 +42,11 @@ report: $(TARGET)
 	./$(TARGET) > $(BIN_DIR)/report.txt
 
 
+stats:
+	@echo "Total tickets: $$(tail -n +2 data/tickets.csv | wc -l)"
+	@echo "Active tickets: $$(tail -n +2 data/tickets.csv | grep -c active)"
+
+
 clean:
 	rm -rf $(BIN_DIR)
 
