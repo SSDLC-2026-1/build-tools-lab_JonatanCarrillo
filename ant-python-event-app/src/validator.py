@@ -6,6 +6,10 @@ def is_valid_email(email: str) -> bool:
     pattern = r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
     return re.match(pattern, email) is not None
 
+def validate_registration_code(attendee: str) -> bool:
+    patron = r"^EV-\d{4}$"
+    return bool(re.match(patron, attendee))
+
 def validate_attendee(attendee: dict) -> list:
     errors = []
 
@@ -21,5 +25,8 @@ def validate_attendee(attendee: dict) -> list:
 
     if attendee.get("ticket_type") not in VALID_TICKETS:
         errors.append("Invalid ticket type")
+        
+     if not attendee.get("registratio_code") or not attendee["registration_code"].strip():
+        errors.append("Invalid registration code")
 
     return errors
