@@ -38,7 +38,7 @@
             <arg value="build.xml"/>
         </exec>
     </target>
-      <target name="package" depends="clean,test">
+      <target name="report" depends="clean,test">
     <echo>Generating test report...</echo>
 
     <mkdir dir="${dist.dir}/test-report"/>
