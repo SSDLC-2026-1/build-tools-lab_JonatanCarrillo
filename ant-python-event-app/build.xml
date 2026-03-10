@@ -46,3 +46,4 @@
             <arg value="${src.dir}/app.py"/>
         </exec>
     </target>
+</project>
