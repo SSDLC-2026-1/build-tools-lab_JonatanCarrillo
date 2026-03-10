@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Laura",
+    "email": "laura@example.com",
+    "age": 22,
+    "ticket_type": "vip"
+  },
+  {
+    "name": "Pedro",
+    "email": "pedroexample.com",
+    "age": 19,
+    "ticket_type": "general"
+  },
+  {
+    "name": "Sofia",
+    "email": "sofia@example.com",
+    "age": 17,
+    "ticket_type": "student"
+  }
+]
